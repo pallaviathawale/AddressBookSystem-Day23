@@ -4,7 +4,13 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to AddressBook System Day23");
+            Console.WriteLine("...Welcome to Address Book...");
+            AddressBooks Book = new AddressBooks();
+            Book.CreateContact();
+            Console.ReadLine();
+
+
         }
     }
+    
 }
