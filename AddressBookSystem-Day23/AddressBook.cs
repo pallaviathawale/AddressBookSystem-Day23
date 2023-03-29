@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace AddressBookSystem_Day23
 {
-
     internal class AddressBooks
     {
-
         List<Contact> addressBookList = new List<Contact>();
 
         public void CreateContact()
@@ -32,7 +30,7 @@ namespace AddressBookSystem_Day23
             contacts.City = Console.ReadLine();
             Console.WriteLine("Enter Zip Code : ");
             contacts.ZipCode = Console.ReadLine();
-            Console.WriteLine("Contact created successfully......");
+            Console.WriteLine("Contact created");
         }
         public void AddContact()
         {
@@ -56,6 +54,63 @@ namespace AddressBookSystem_Day23
             addressBookList.Add(addContact);
             Console.WriteLine("Contact Added Successfully!");
         }
+        public void EditContact()
+        {
+            Console.WriteLine("Enter the First Name to Check : ");
+            string firstName = Console.ReadLine();
+            foreach (Contact data in addressBookList)
+            {
+                if (data.FirstName == firstName)
+                {
+                    Console.WriteLine("Edit Contact details");
+                    Console.WriteLine("\n1.First Name \n2.Last Name \n3.Address \n4.city \n5.state \n6.zip Code \n7.Phone Number \n8.Email");
+                    int choice = Convert.ToInt32(Console.ReadLine());
+                    switch (choice)
+                    {
+                        case 1:
+                            Console.WriteLine("Enter First Name : ");
+                            data.FirstName = Console.ReadLine();
+                            break;
+                        case 2:
+                            Console.WriteLine("Enter Last Name");
+                            data.LastName = Console.ReadLine();
+                            break;
+                        case 3:
+                            Console.WriteLine("Enter Address");
+                            data.Address = Console.ReadLine();
+                            break;
+                        case 4:
+                            Console.WriteLine("Enter City");
+                            data.City = Console.ReadLine();
+                            break;
+                        case 5:
+                            Console.WriteLine("Enter State");
+                            data.State = Console.ReadLine();
+                            break;
+                        case 6:
+                            Console.WriteLine("Enter Zip Code");
+                            data.ZipCode = Console.ReadLine();
+                            break;
+                        case 7:
+                            Console.WriteLine("Enter Phone Number");
+                            data.PhoneNo = Console.ReadLine();
+                            break;
+                        case 8:
+                            Console.WriteLine("Enter Email");
+                            data.Email = Console.ReadLine();
+                            break;
+                        default:
+                            Console.WriteLine("Select Correct number");
+                            break;
+                    }
+                    Console.WriteLine("Contact Edited Successfully");
+                }
+                else
+                {
+                    Console.WriteLine("No Contact Exists with this First Name : " + firstName);
+                }
+            }
+        }
         public void DisplayContact()
         {
             Console.WriteLine("Contact Details");
@@ -73,5 +128,6 @@ namespace AddressBookSystem_Day23
         }
     }
 }
+
 
 
